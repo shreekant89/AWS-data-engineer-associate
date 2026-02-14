@@ -148,7 +148,7 @@ The Glue service role now has permission to read your S3 data.
 
 # Step 6: Create a Table in Glue Data Catalog
 
-1. Click on the `Amazon-Data` database.
+1. Click on the `amazon-data` database.
 2. Click **Add table**.
 3. Enter the table name:
 
@@ -207,6 +207,30 @@ You can now:
 - Query the data using **Amazon Athena**
 - Build ETL jobs in AWS Glue
 - Integrate with Lake Formation for governance
+
+## Querying Data with Amazon Athena
+
+To query the data using Athena, you need to set up a query result location.
+
+### Step 1: Create an S3 Bucket for Query Results
+
+1. Log in to the AWS Management Console.
+2. Navigate to **Amazon S3**.
+3. Click **Create bucket**.
+4. Enter a globally unique bucket name, e.g., `dea-course-results-yourname-12345`.
+5. Leave all settings as default.
+6. Click **Create bucket**.
+
+### Step 2: Configure Athena Workgroup
+
+1. Navigate to **Amazon Athena** in the console.
+2. Click **Workgroups** in the left menu.
+3. Select your workgroup (default is `primary`).
+4. Click **Edit**.
+5. Under **Query result location**, enter the S3 URI of the bucket you created, e.g., `s3://dea-course-results-yourname-12345/results/`.
+6. Click **Save changes**.
+
+Now you can run queries in Athena without the output location error.
 
 ---
 
